@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Habit Tomorrow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- ☀️ Happy sun image -->
+    <img src="sun-removebg-preview.png" alt="Smiling Sun" class="sun-img" />
+
+    <!-- Name prompt -->
+    <div id="namePrompt" class="card">
+      <h2>Welcome! What’s your name?</h2>
+      <input type="text" id="nameInput" placeholder="Enter your name" />
+      <button onclick="saveName()">Start</button>
+    </div>
+
+    <!-- Main app -->
+    <div id="mainApp" style="display: none">
+      <h1 id="greeting"></h1>
+
+      <!-- Tomorrow’s Plan -->
+      <div class="card">
+        <h2>🗓️ Tomorrow I want to...</h2>
+        <input type="text" id="todoInput" placeholder="Add task for tomorrow" />
+        <button onclick="addTomorrowTask()">Add</button>
+        <ul id="tomorrowList"></ul>
+      </div>
+
+      <!-- Today's Tasks (from yesterday) -->
+      <div class="card">
+        <h2>✅ Today’s Plan</h2>
+        <ul id="todayList"></ul>
+      </div>
+
+      <!-- Good Habits -->
+      <div class="card">
+        <h2>🌱 Habits I Want to Build</h2>
+        <input type="text" id="goodHabitInput" placeholder="e.g. Drink water" />
+        <button onclick="addGoodHabit()">Add Habit</button>
+        <ul id="goodHabits"></ul>
+      </div>
+
+      <!-- Bad Habits -->
+      <div class="card">
+        <h2>🚫 Habits I Want to Break</h2>
+        <input type="text" id="badHabitInput" placeholder="e.g. Stop scrolling late" />
+        <button onclick="addBadHabit()">Add Bad Habit</button>
+        <ul id="badHabits"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
