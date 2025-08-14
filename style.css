@@ -1,0 +1,293 @@
+/* =========================
+   🍓 Base & Theme
+========================= */
+:root{
+  --bg: #ffe6f0;
+  --card: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #7a7a7a;
+  --brand: #8da9ff;
+  --brand-dark: #6b8cff;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+  --radius: 14px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height:100%; width:100%; }
+
+body{
+  margin:0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* App wrapper */
+#app{
+  width:100%;
+  max-width:1400px;
+  margin:0 auto;
+  padding:2rem;
+}
+
+/* =========================
+   ✨ Typography
+========================= */
+h1, h2{
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin: 0 0 1rem;
+}
+h3{
+  font-size: 1.15rem;
+  margin: 20px 0 8px;
+  color: #c05d5d;
+}
+p{ margin: .25rem 0; }
+
+/* =========================
+   🌈 Welcome Screen
+========================= */
+.welcome-screen{
+  min-height: 100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; gap:20px;
+}
+
+.welcome-img{
+  display:block; margin:0 auto;
+  height:auto; opacity:0;
+  animation-fill-mode:forwards;
+  animation-duration:1s;
+  animation-timing-function:ease;
+}
+
+img.welcome-img.welcome-title{
+  width: 950px; max-width:none;
+  position:relative; left:13vw;
+  margin-left:-1vw;
+  animation-name:bounceIn;
+}
+
+.click-here-img{
+  width:500px; max-width:30vw; height:auto;
+  cursor:pointer; opacity:0;
+  transition: transform .3s ease;
+  animation-fill-mode:forwards;
+  animation-duration:1s; animation-timing-function:ease;
+}
+.click-here-img:hover{ transform: scale(1.15); }
+
+.positivity{
+  width:70%; max-width:700px;
+  transform: scale(1.1);
+  margin-top: 40px;
+}
+
+/* =========================
+   🌞 Name Prompt (blue.jpg)
+========================= */
+#namePrompt{
+  position: relative;
+  min-height: 100vh;
+  padding: 24px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  background: url("blue.jpg") no-repeat center center / cover;
+}
+#namePrompt::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(255,255,255,0.35); /* soft overlay for readability */
+}
+#namePrompt *{ position: relative; z-index: 1; }
+
+.sun-img{
+  display:block; margin: 0 auto 24px;
+  max-width:120px; height:auto;
+}
+
+.name-input-container{ margin-top: 16px; }
+
+/* Bigger, nicer name input */
+#namePrompt .name-input-container input{
+  width: 320px;
+  max-width: 80vw;
+  height: 56px;
+  font-size: 1.1rem;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 2px solid #d8d8d8;
+  background: #fff;
+  outline: none;
+  box-shadow: var(--shadow);
+}
+
+/* Start button to match */
+#namePrompt button{
+  margin-top: 14px;
+  width: 320px;
+  max-width: 80vw;
+  height: 52px;
+  font-size: 1rem;
+  font-weight: 700;
+  color:#fff;
+  background: var(--brand);
+  border:none; border-radius: 12px;
+  cursor:pointer;
+  box-shadow: var(--shadow);
+  transition: transform .05s ease, background .2s ease;
+}
+#namePrompt button:active{ transform: translateY(1px); }
+#namePrompt button:hover{ background: var(--brand-dark); }
+
+/* =========================
+   🌄 Main Planner
+========================= */
+.planner-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.planner-column{
+  display:flex; flex-direction:column; gap:2rem;
+}
+.planner-grid{
+  display:grid; gap:1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.section{
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.05);
+}
+
+input, textarea{
+  width:100%;
+  margin-bottom:10px;
+  padding:10px 12px;
+  font-size:1rem;
+  border-radius:8px;
+  border:1px solid #ccc;
+  background:#fff;
+}
+
+/* Generic button */
+button{
+  margin-top:10px;
+  padding:12px;
+  width:100%;
+  background: var(--brand);
+  border:none; color:#fff;
+  font-weight:700; font-size:1rem;
+  border-radius:8px; cursor:pointer;
+}
+button:hover{ background: var(--brand-dark); }
+
+/* Save image button row */
+.save-row{
+  display:flex; justify-content:center;
+  margin-top: 10px;
+}
+#saveBtn img{ display:block; }
+
+/* =========================
+   ✅ Lists & Water
+========================= */
+ul{ list-style:none; padding:0; margin-top:10px; }
+ul li{
+  background:#eee; padding:12px;
+  margin-bottom:6px; border-radius:8px; cursor:pointer;
+}
+ul li.checked{
+  text-decoration: line-through;
+  color: gray; background:#cceccc;
+}
+
+.water-dot{
+  display:inline-block;
+  width:20px; height:20px; margin:5px;
+  border-radius:50%;
+  background:#eee; border:2px solid #ccc;
+  cursor:pointer;
+}
+.water-dot.filled{
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+/* =========================
+   🎞️ Animations
+========================= */
+.bounce-in{ animation-name: bounceIn; }
+.fade-in{ animation-name: fadeIn; }
+
+.delay-1{ animation-delay:.3s; }
+.delay-2{ animation-delay:1s; }
+.delay-3{ animation-delay:1.7s; }
+.delay-4{ animation-delay:2.4s; }
+.delay-5{ animation-delay:3.2s; }
+
+@keyframes bounceIn{
+  0%{ transform: scale(.5) translateY(-200px); opacity:0; }
+  60%{ transform: scale(1.1) translateY(20px); opacity:1; }
+  100%{ transform: scale(1) translateY(0); opacity:1; }
+}
+@keyframes fadeIn{
+  0%{ opacity:0; } 100%{ opacity:1; }
+}
+
+/* =========================
+   🎉 Review Page (celebrate.jpg)
+========================= */
+#reviewPage{
+  position: relative;
+  min-height: 100vh;
+  padding: 20px;
+  background: url("celebrate.jpg") no-repeat center center / cover;
+}
+#reviewPage::before{
+  /* very light veil so text always readable */
+  content:""; position:absolute; inset:0;
+  background: rgba(255,255,255,0.25);
+}
+#reviewPage .header,
+#reviewPage .section,
+#reviewPage .planner-container{
+  position: relative; z-index: 1;
+}
+
+/* Frosted summary card */
+#reviewPage .review-card{
+  background: rgba(255,255,255,.85);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 760px;
+  margin: 0 auto;
+  backdrop-filter: blur(4px);
+}
+#reviewPage h3{ margin: 1rem 0 .4rem; }
+#reviewPage ul{ margin: .25rem 0 .75rem 1.1rem; }
+
+/* Back arrow polish */
+#backArrow{
+  width:24px; height:24px; cursor:pointer;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.15));
+}
+
+/* =========================
+   📱 Responsive
+========================= */
+@media (max-width: 768px){
+  h1, h2, h3{ text-align:center; }
+  .planner-grid{ grid-template-columns: 1fr; }
+  .click-here-img{ max-width: 70vw; }
+  img.welcome-img.welcome-title{
+    width:100%; left:0; margin-left:0;
+  }
+  .planner-container{ padding:1rem; }
+}

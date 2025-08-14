@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Habit Tomorrow</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- 🌈 Welcome Screen -->
+    <section id="welcomeScreen" class="welcome-screen">
+      <img src="positivity.png" alt="Positivity!" class="welcome-img positivity bounce-in delay-1" />
+      <img src="welcome.png" alt="Welcome to Habit Tomorrow" class="welcome-img welcome-title bounce-in delay-2" />
+      <img src="sailor.png" alt="Sailor Scouts" class="sailor-img bounce-in delay-3" />
+      <img src="clickhere.png" alt="Click Here" class="click-here-img fade-in delay-4" id="clickHereButton" />
+    </section>
+
+    <!-- 🌞 Name Prompt -->
+    <section id="namePrompt" class="card name-prompt" style="display: none;">
+      <img src="sun.png" alt="Smiling Sun" class="sun-img rotating-sun" />
+      <h2>Choose a name for yourself that best suits you!</h2>
+      <div class="name-input-container">
+        <input type="text" id="nameInput" placeholder="Enter your name" />
+      </div>
+      <button onclick="saveName()">Start</button>
+    </section>
+
+    <!-- 🌄 Main App Layout -->
+    <section id="mainApp" style="display: none;">
+      <div class="header">
+        <h1 id="greeting"></h1>
+      </div>
+
+      <!-- 🌱 Daily Habit Tracker -->
+      <div class="planner-container">
+        <div class="planner-column wide">
+          <div class="card">
+            <h2>🌱 Your Habit Today</h2>
+            <input type="text" id="habitInput" placeholder="e.g. Meditate for 10 mins" />
+            <!-- removed per-section Save button -->
+            <div id="habitDisplay" style="display:none;">
+              <p><strong>Tracking:</strong> <span id="habitName"></span></p>
+              <label><input type="checkbox" id="habitCheckbox" /> I did it!</label>
+            </div>
+          </div>
+
+          <div class="card" id="tomorrowPlanner">
+            <h2>🗓️ Tomorrow I want to...</h2>
+
+            <div class="planner-grid">
+              <div class="section">
+                <h3>Top 3 Priorities</h3>
+                <input id="priority1" placeholder="1. Priority" />
+                <input id="priority2" placeholder="2. Priority" />
+                <input id="priority3" placeholder="3. Priority" />
+              </div>
+
+              <div class="section">
+                <h3>Mood</h3>
+                <input id="moodInput" placeholder="How do you want to feel?" />
+              </div>
+
+              <div class="section">
+                <h3>Appointments</h3>
+                <ul id="appointments"></ul>
+                <input id="appointmentInput" placeholder="Add appointment" />
+                <button onclick="addAppointment()">Add</button>
+              </div>
+
+              <div class="section">
+                <h3>Things to Get Done</h3>
+                <ul id="todoList"></ul>
+                <input id="todoInput" placeholder="Add task" />
+                <button onclick="addTodo()">Add</button>
+              </div>
+
+              <div class="section">
+                <h3>Exercise & Health</h3>
+                <textarea id="exerciseNotes" placeholder="Stretch? Walk? Workout?"></textarea>
+                <input id="exerciseMinutes" placeholder="Minutes" type="number" />
+              </div>
+
+              <div class="section">
+                <h3>Meals</h3>
+                <input id="mealBreakfast" placeholder="Breakfast" />
+                <input id="mealLunch" placeholder="Lunch" />
+                <input id="mealDinner" placeholder="Dinner" />
+                <input id="mealSnacks" placeholder="Snacks" />
+              </div>
+
+              <div class="section">
+                <h3>Water Intake</h3>
+                <div id="waterTracker">
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                  <span class="water-dot" onclick="toggleDot(this)"></span>
+                </div>
+              </div>
+
+              <div class="section">
+                <h3>Daily Habits & Goals</h3>
+                <input class="goalInput" id="goal1" placeholder="1." />
+                <input class="goalInput" id="goal2" placeholder="2." />
+                <input class="goalInput" id="goal3" placeholder="3." />
+                <input class="goalInput" id="goal4" placeholder="4." />
+                <input class="goalInput" id="goal5" placeholder="5." />
+                <input class="goalInput" id="goal6" placeholder="6." />
+                <input class="goalInput" id="goal7" placeholder="7." />
+              </div>
+
+              <div class="section">
+                <h3>Notes</h3>
+                <textarea id="notesInput" placeholder="Reflections, intentions, or thoughts"></textarea>
+              </div>
+            </div> <!-- end .planner-grid -->
+
+            <!-- 🔘 Single Save Button (image) -->
+            <div class="save-row">
+              <button id="saveBtn" style="background:none;border:none;padding:0;cursor:pointer;">
+                <img src="save.png" alt="Save & Review" style="width:64px;height:auto;" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔎 Review Page (hidden until #review) -->
+    <section id="reviewPage" style="display:none;">
+      <div class="header">
+        <h1>Review Your Plan</h1>
+      </div>
+      <div class="section" id="reviewContent"></div>
+      <div class="planner-container" style="gap:12px; display:flex; justify-content:center; margin-top:16px;">
+        <button onclick="window.location.hash='#main'">Back to Edit</button>
+        <button onclick="createNewPlan()">Create New Plan</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
