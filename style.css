@@ -64,7 +64,7 @@ p{ margin: .25rem 0; }
 }
 
 img.welcome-img.welcome-title{
-  width: 950px; max-width:none;
+  width: 750px; max-width:none;
   position:relative; left:13vw;
   margin-left:-1vw;
   animation-name:bounceIn;
@@ -79,10 +79,11 @@ img.welcome-img.welcome-title{
 }
 .click-here-img:hover{ transform: scale(1.15); }
 
-.positivity{
-  width:70%; max-width:700px;
-  transform: scale(1.1);
-  margin-top: 40px;
+.positivity {
+  width: 55%;         /* was 70% */
+  max-width: 500px;   /* was 700px */
+  transform: scale(1); /* was 1.1 */
+  margin-top: 60px;   /* was 40px → lower */
 }
 
 /* =========================
@@ -291,3 +292,8 @@ ul li.checked{
   }
   .planner-container{ padding:1rem; }
 }
+.sailor-img {
+  max-width: 300px;
+  height: auto;
+}
+s
