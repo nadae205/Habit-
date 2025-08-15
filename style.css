@@ -65,7 +65,7 @@ p{ margin: .25rem 0; }
 
 img.welcome-img.welcome-title{
   width: 750px; max-width:none;
-  position:relative; left:18vw;
+  position:relative; left:23vw;
   margin-left:-1vw;
   animation-name:bounceIn;
 }
