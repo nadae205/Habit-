@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,6 @@
           <div class="card">
             <h2>🌱 Your Habit Today</h2>
             <input type="text" id="habitInput" placeholder="e.g. Meditate for 10 mins" />
-            <!-- removed per-section Save button -->
             <div id="habitDisplay" style="display:none;">
               <p><strong>Tracking:</strong> <span id="habitName"></span></p>
               <label><input type="checkbox" id="habitCheckbox" /> I did it!</label>
@@ -115,18 +115,22 @@
                 <input class="goalInput" id="goal7" placeholder="7." />
               </div>
 
-              <div class="section">
+              <!-- NOTE: removed the duplicate Notes section from inside the grid -->
+            </div> <!-- end .planner-grid -->
+
+            <!-- 📝 Notes + Save Button (single Notes input, Save on the right) -->
+            <div class="notes-save-row">
+              <div class="notes-column">
                 <h3>Notes</h3>
                 <textarea id="notesInput" placeholder="Reflections, intentions, or thoughts"></textarea>
               </div>
-            </div> <!-- end .planner-grid -->
+              <div class="save-btn-container">
+                <button id="saveBtn" style="background:none;border:none;padding:0;cursor:pointer;">
+                  <img src="newsave.png" alt="Save & Review" width="64" height="64" loading="lazy" />
+                </button>
+              </div>
+            </div>
 
-            <!-- 🔘 Single Save Button (image) -->
-            <div class="save-row">
-  <button id="saveBtn" style="background:none;border:none;padding:0;cursor:pointer;">
-    <img src="newsave.png" alt="Save & Review" width="64" height="64" loading="lazy" />
-  </button>
-</div>
           </div>
         </div>
       </div>
